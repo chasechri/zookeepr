@@ -89,8 +89,8 @@ app.post("/api/animals", (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Api server now on port ${PORT}!`);
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
 function validateAnimal(animal) {
@@ -111,3 +111,7 @@ function validateAnimal(animal) {
   }
   return true;
 }
+
+app.listen(PORT, () => {
+  console.log(`Api server now on port ${PORT}!`);
+});
